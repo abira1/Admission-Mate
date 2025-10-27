@@ -1,2 +1,5 @@
-projects:
-  default: admission-mate
+{
+  "projects": {
+    "default": "admission-mate"
+  }
+}
