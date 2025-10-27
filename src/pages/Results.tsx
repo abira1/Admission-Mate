@@ -323,37 +323,37 @@ export function Results() {
         opacity: 0
       }} animate={{
         opacity: 1
-      }} className="text-center py-16 sm:py-24 bg-white rounded-3xl border-4 border-black p-8 sm:p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+      }} className="text-center py-12 sm:py-20 bg-white rounded-3xl border-4 border-black p-6 sm:p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <AlertCircleIcon className="w-20 h-20 text-orange-500 mx-auto mb-6" />
-            <h2 className="text-2xl sm:text-3xl font-black text-black mb-4">
+            <h2 className="text-2xl sm:text-3xl font-black text-black mb-4 px-4">
               No Universities Found
             </h2>
-            <p className="text-gray-700 font-bold mb-6 max-w-md mx-auto text-base">
+            <p className="text-gray-700 font-bold mb-6 max-w-md mx-auto text-base px-4 leading-relaxed\">
               The university database is empty. Please contact the administrator.
             </p>
           </motion.div> : filteredResults.length === 0 ? <motion.div initial={{
         opacity: 0
       }} animate={{
         opacity: 1
-      }} className="text-center py-16 sm:py-24 bg-white rounded-3xl border-4 border-black p-8 sm:p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+      }} className="text-center py-12 sm:py-20 bg-white rounded-3xl border-4 border-black p-6 sm:p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <AlertCircleIcon className="w-20 h-20 text-gray-400 mx-auto mb-6" />
-            <h2 className="text-2xl sm:text-3xl font-black text-black mb-4">
+            <h2 className="text-2xl sm:text-3xl font-black text-black mb-4 px-4">
               No Eligible Universities Found
             </h2>
-            <p className="text-gray-700 font-bold px-4 max-w-md mx-auto mb-4 text-base">
+            <p className="text-gray-700 font-bold px-4 max-w-md mx-auto mb-4 text-base leading-relaxed\">
               Based on your GPA ({studentData?.sscGPA} + {studentData?.hscGPA} ={' '}
               {((studentData?.sscGPA || 0) + (studentData?.hscGPA || 0)).toFixed(2)}
-              ) and group ({studentData?.group}), no universities match the
-              eligibility criteria.
+              ) and group ({studentData?.group}), no universities match.
             </p>
-            <p className="text-sm text-gray-600 font-bold mb-8">
-              Try adjusting your filters or check back later as new universities
-              may be added.
+            <p className="text-sm text-gray-600 font-bold mb-8 px-4">
+              Try adjusting your filters or check back later.
             </p>
-            <button onClick={() => navigate('/')} className="bg-indigo-400 text-black py-3 px-8 rounded-xl font-black border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
+            <button 
+              onClick={() => navigate('/')} 
+              className="bg-indigo-400 text-black py-4 px-8 rounded-xl font-black text-lg border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-[3px] active:translate-y-[3px] transition-all\">
               Try Different Criteria
             </button>
-          </motion.div> : <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 pb-8">
+          </motion.div> : <div className="grid gap-5 sm:gap-6 pb-6 sm:pb-8">
             {filteredResults.map((result, index) => <UniversityCard key={result.university.id} university={result.university} index={index} />)}
           </div>}
       </div>
