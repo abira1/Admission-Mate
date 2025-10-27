@@ -328,7 +328,7 @@ export function Results() {
             <h2 className="text-2xl sm:text-3xl font-black text-black mb-4 px-4">
               No Universities Found
             </h2>
-            <p className="text-gray-700 font-bold mb-6 max-w-md mx-auto text-base px-4 leading-relaxed\">
+            <p className="text-gray-700 font-bold mb-6 max-w-md mx-auto text-base px-4 leading-relaxed">
               The university database is empty. Please contact the administrator.
             </p>
           </motion.div> : filteredResults.length === 0 ? <motion.div initial={{
@@ -340,7 +340,7 @@ export function Results() {
             <h2 className="text-2xl sm:text-3xl font-black text-black mb-4 px-4">
               No Eligible Universities Found
             </h2>
-            <p className="text-gray-700 font-bold px-4 max-w-md mx-auto mb-4 text-base leading-relaxed\">
+            <p className="text-gray-700 font-bold px-4 max-w-md mx-auto mb-4 text-base leading-relaxed">
               Based on your GPA ({studentData?.sscGPA} + {studentData?.hscGPA} ={' '}
               {((studentData?.sscGPA || 0) + (studentData?.hscGPA || 0)).toFixed(2)}
               ) and group ({studentData?.group}), no universities match.
