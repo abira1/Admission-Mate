@@ -186,8 +186,8 @@ export function Results() {
         opacity: 1,
         y: 0
       }} className="flex flex-col gap-4 sm:gap-5 mb-6 sm:mb-8">
-          <button onClick={() => navigate('/')} className="flex items-center gap-3 text-black active:text-gray-700 font-bold transition-colors bg-white px-5 py-4 sm:py-3 rounded-xl border-3 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[3px] active:translate-y-[3px] transition-all w-fit text-lg sm:text-base\">
-            <ArrowLeftIcon className=\"w-6 h-6 sm:w-5 sm:h-5\" />
+          <button onClick={() => navigate('/')} className="flex items-center gap-3 text-black active:text-gray-700 font-bold transition-colors bg-white px-5 py-4 sm:py-3 rounded-xl border-3 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[3px] active:translate-y-[3px] transition-all w-fit text-lg sm:text-base">
+            <ArrowLeftIcon className="w-6 h-6 sm:w-5 sm:h-5" />
             <span>Back to Home</span>
           </button>
           {/* Student Info Summary - Mobile Optimized */}
