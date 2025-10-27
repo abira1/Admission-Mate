@@ -16,8 +16,12 @@ export function AdminLogin() {
       setError('');
       await signInWithGoogle();
       navigate('/admin');
-    } catch (err) {
-      setError('Failed to sign in. Please try again.');
+    } catch (err: any) {
+      if (err.message === 'UNAUTHORIZED_EMAIL') {
+        setError('❌ Access Denied: Your email is not authorized for admin access.');
+      } else {
+        setError('Failed to sign in. Please try again.');
+      }
       console.error(err);
     } finally {
       setLoading(false);
