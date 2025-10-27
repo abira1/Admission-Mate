@@ -139,7 +139,8 @@ export function Results() {
   }, [searchTerm, filterStatus, eligibilityResults]);
   const totalEligibleUnits = eligibilityResults.reduce((sum, result) => sum + result.totalEligibleUnits, 0);
   const openUnitsCount = eligibilityResults.reduce((sum, result) => sum + result.eligibleUnits.filter(u => u.status === 'Open').length, 0);
-  return <div className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex flex-col">
+  return (
+    <div className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex flex-col">
       {loading ? (
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
