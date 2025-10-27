@@ -303,6 +303,7 @@ export function Results() {
             {filteredResults.map((result, index) => <UniversityCard key={result.university.id} university={result.university} index={index} />)}
           </div>}
       </div>
+      )}
       <Footer />
     </div>;
 }
