@@ -409,17 +409,28 @@ export function Admin() {
         // Initialize with default data if database is empty
         await initializeUniversities(INITIAL_UNIVERSITIES);
         
-        // Fetch universities from Firebase
+        // Fetch universities from Firebase initially
         const unis = await getUniversities();
         setUniversities(unis);
+        setLoading(false);
       } catch (error) {
         console.error('Error loading universities:', error);
-      } finally {
         setLoading(false);
       }
     };
 
     loadUniversities();
+
+    // Subscribe to real-time updates
+    const unsubscribe = subscribeToUniversities((updatedUniversities) => {
+      console.log('Real-time update: Universities changed', updatedUniversities.length);
+      setUniversities(updatedUniversities);
+    });
+
+    // Cleanup listener on unmount
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   const handleAddUniversity = async (university: Omit<University, 'id' | 'createdAt'>) => {
