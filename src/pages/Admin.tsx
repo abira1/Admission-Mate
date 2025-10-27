@@ -526,7 +526,8 @@ export function Admin() {
         {deleteConfirm && <DeleteConfirmModal onConfirm={() => handleDeleteUniversity(deleteConfirm)} onCancel={() => setDeleteConfirm(null)} />}
       </AnimatePresence>
       <Footer />
-    </div>;
+    </div>
+  );
 }
 function UniversityList({
   universities,
