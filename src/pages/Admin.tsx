@@ -441,8 +441,7 @@ export function Admin() {
         createdAt: new Date()
       };
       await addUniversity(newUniversity);
-      const updated = await getUniversities();
-      setUniversities(updated);
+      // Real-time listener will auto-update the list
       setActiveTab('list');
     } catch (error) {
       console.error('Error adding university:', error);
@@ -453,8 +452,7 @@ export function Admin() {
   const handleUpdateUniversity = async (university: University) => {
     try {
       await updateUniversity(university);
-      const updated = await getUniversities();
-      setUniversities(updated);
+      // Real-time listener will auto-update the list
       setEditingUniversity(null);
     } catch (error) {
       console.error('Error updating university:', error);
@@ -465,8 +463,7 @@ export function Admin() {
   const handleDeleteUniversity = async (id: string) => {
     try {
       await deleteUniversity(id);
-      const updated = await getUniversities();
-      setUniversities(updated);
+      // Real-time listener will auto-update the list
       setDeleteConfirm(null);
     } catch (error) {
       console.error('Error deleting university:', error);
