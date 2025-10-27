@@ -256,16 +256,16 @@ export function Results() {
           {/* Search and Filters - Mobile Optimized */}
           <div className="space-y-3 sm:space-y-0 sm:flex sm:gap-4">
             <div className="relative flex-1">
-              <SearchIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-600 pointer-events-none\" />
+              <SearchIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-600 pointer-events-none" />
               <input 
                 type="text" 
                 placeholder="Search universities..." 
                 value={searchTerm} 
                 onChange={e => setSearchTerm(e.target.value)} 
-                className="pl-12 pr-4 py-4 sm:py-3 rounded-xl border-3 border-black focus:outline-none focus:ring-4 focus:ring-indigo-300 bg-white text-black text-base font-bold w-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] focus:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all\" 
+                className="pl-12 pr-4 py-4 sm:py-3 rounded-xl border-3 border-black focus:outline-none focus:ring-4 focus:ring-indigo-300 bg-white text-black text-base font-bold w-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] focus:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all" 
               />
             </div>
-            <div className="grid grid-cols-3 gap-2 sm:gap-3 sm:flex\">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 sm:flex">
               <button 
                 onClick={() => setFilterStatus('all')} 
                 className={`px-4 sm:px-5 py-3.5 sm:py-3 rounded-xl border-3 border-black font-bold text-base sm:text-sm transition-all active:translate-x-[2px] active:translate-y-[2px] ${
