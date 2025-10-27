@@ -100,20 +100,31 @@ export function Results() {
         setLoading(true);
         // Load universities from Firebase initially
         const allUniversities = await getUniversities();
+        console.log('🔍 DEBUG: Total universities loaded:', allUniversities.length);
+        console.log('🔍 DEBUG: Universities data:', allUniversities);
+        console.log('🔍 DEBUG: Student data:', student);
+        console.log('🔍 DEBUG: Student total GPA:', student.sscGPA + student.hscGPA);
+        
         setTotalUniversities(allUniversities.length);
-        console.log('Total universities in database:', allUniversities.length);
-        console.log('Student data:', student);
+
+        if (allUniversities.length === 0) {
+          console.warn('⚠️ No universities found in database!');
+          setEligibilityResults([]);
+          setFilteredResults([]);
+          setLoading(false);
+          return;
+        }
 
         // Run matching algorithm
         const results = matchEligibleUniversities(student, allUniversities);
-        console.log('Eligible universities found:', results.length);
-        console.log('Results:', results);
+        console.log('✅ Eligible universities found:', results.length);
+        console.log('✅ Matching results:', results);
 
         setEligibilityResults(results);
         setFilteredResults(results);
         setLoading(false);
       } catch (error) {
-        console.error('Error loading universities:', error);
+        console.error('❌ Error loading universities:', error);
         setTotalUniversities(0);
         setEligibilityResults([]);
         setFilteredResults([]);
