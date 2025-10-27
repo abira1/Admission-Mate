@@ -5,6 +5,7 @@ import { ArrowLeftIcon, SearchIcon, AlertCircleIcon, CheckCircleIcon, ClockIcon 
 import { Footer } from '../components/Footer';
 import { UniversityCard } from '../components/UniversityCard';
 import { University, StudentData } from '../types/University';
+import { getUniversities } from '../utils/database';
 interface EligibilityResult {
   university: University;
   eligibleUnits: Array<{
