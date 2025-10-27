@@ -4,13 +4,29 @@ import { Home } from './pages/Home';
 import { Loading } from './pages/Loading';
 import { Results } from './pages/Results';
 import { Admin } from './pages/Admin';
+import { AdminLogin } from './pages/AdminLogin';
+import { AuthProvider } from './contexts/AuthContext';
+import { ProtectedRoute } from './components/ProtectedRoute';
+
 export function App() {
-  return <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/loading" element={<Loading />} />
-        <Route path="/results" element={<Results />} />
-        <Route path="/admin" element={<Admin />} />
-      </Routes>
-    </BrowserRouter>;
+  return (
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/loading" element={<Loading />} />
+          <Route path="/results" element={<Results />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <Admin />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
+  );
 }
