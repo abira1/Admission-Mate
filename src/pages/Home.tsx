@@ -38,29 +38,29 @@ export function Home() {
   };
   
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex flex-col">
-      <div className="flex-1 flex items-center justify-center px-4 py-6 sm:py-12">
+    <div className="h-screen w-full bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex flex-col overflow-hidden">
+      <div className="flex-1 flex items-center justify-center px-3 sm:px-4 py-3 sm:py-4">
         <div className="max-w-2xl w-full">
           <motion.div 
             initial={{ opacity: 0, y: -20 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.6 }} 
-            className="text-center mb-6 sm:mb-8"
+            className="text-center mb-3 sm:mb-4"
           >
             <motion.div 
               initial={{ scale: 0.8, opacity: 0 }} 
               animate={{ scale: 1, opacity: 1 }} 
               transition={{ duration: 0.5 }} 
-              className="inline-block mb-4 sm:mb-5"
+              className="inline-block mb-2 sm:mb-3"
             >
-              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-indigo-400 rounded-2xl border-4 border-black flex items-center justify-center shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] mx-auto">
-                <GraduationCapIcon className="w-10 h-10 sm:w-12 sm:h-12 text-black" />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-indigo-400 rounded-xl sm:rounded-2xl border-3 border-black flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mx-auto">
+                <GraduationCapIcon className="w-7 h-7 sm:w-8 sm:h-8 text-black" />
               </div>
             </motion.div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-black mb-3 sm:mb-4 leading-tight px-2">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-black mb-1.5 sm:mb-2 leading-tight px-2">
               Admission Mate
             </h1>
-            <p className="text-lg sm:text-xl text-gray-700 font-bold max-w-xl mx-auto px-4">
+            <p className="text-sm sm:text-base md:text-lg text-gray-700 font-bold max-w-xl mx-auto px-3">
               Bangladesh's easiest admission eligibility checker
             </p>
           </motion.div>
