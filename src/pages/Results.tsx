@@ -306,5 +306,6 @@ export function Results() {
       </div>
       )}
       <Footer />
-    </div>;
+    </div>
+  );
 }
