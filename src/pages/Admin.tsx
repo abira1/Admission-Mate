@@ -464,7 +464,15 @@ export function Admin() {
   };
   return <div className="min-h-screen w-full bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50">
       <Navbar />
-      <div className="flex flex-col lg:flex-row max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 gap-6 sm:gap-8">
+      {loading ? (
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="text-center">
+            <div className="inline-block animate-spin rounded-full h-16 w-16 border-4 border-black border-t-yellow-400"></div>
+            <p className="mt-4 text-black font-bold">Loading universities...</p>
+          </div>
+        </div>
+      ) : (
+        <div className="flex flex-col lg:flex-row max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 gap-6 sm:gap-8">
         <motion.div initial={{
         opacity: 0,
         x: -20
