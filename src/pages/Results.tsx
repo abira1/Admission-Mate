@@ -290,12 +290,8 @@ export function Results() {
               No Universities Found
             </h2>
             <p className="text-black font-bold mb-6 max-w-md mx-auto">
-              The university database is empty. Please add universities through
-              the Admin panel first.
+              The university database is empty. Please contact the administrator.
             </p>
-            <button onClick={() => navigate('/admin')} className="bg-yellow-400 text-black py-3 px-8 rounded-xl font-black border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
-              Go to Admin Panel
-            </button>
           </motion.div> : filteredResults.length === 0 ? <motion.div initial={{
         opacity: 0
       }} animate={{
