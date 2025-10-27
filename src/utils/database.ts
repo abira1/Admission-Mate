@@ -1,4 +1,4 @@
-import { ref, set, get, remove, update } from 'firebase/database';
+import { ref, set, get, remove, update, onValue, off } from 'firebase/database';
 import { db } from './firebase';
 import { University } from '../types/University';
 
@@ -16,6 +16,29 @@ export const getUniversities = async (): Promise<University[]> => {
     console.error('Error fetching universities:', error);
     return [];
   }
+};
+
+// Subscribe to real-time university updates
+export const subscribeToUniversities = (
+  callback: (universities: University[]) => void
+): (() => void) => {
+  const universitiesRef = ref(db, 'universities');
+  
+  const unsubscribe = onValue(universitiesRef, (snapshot) => {
+    if (snapshot.exists()) {
+      const data = snapshot.val();
+      const universities: University[] = Object.values(data);
+      callback(universities);
+    } else {
+      callback([]);
+    }
+  }, (error) => {
+    console.error('Error in real-time listener:', error);
+    callback([]);
+  });
+  
+  // Return cleanup function
+  return () => off(universitiesRef);
 };
 
 // Add a new university
