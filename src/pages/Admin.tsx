@@ -502,9 +502,16 @@ export function Admin() {
         opacity: 1,
         x: 0
       }} className="w-full lg:w-64 bg-white rounded-3xl border-4 border-black p-6 h-fit lg:sticky lg:top-24 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-          <h2 className="text-xl sm:text-2xl font-black text-black mb-6">
+          <h2 className="text-xl sm:text-2xl font-black text-black mb-2">
             Admin Panel
           </h2>
+          {user && (
+            <div className="mb-4 p-3 bg-green-100 rounded-xl border-2 border-black">
+              <p className="text-xs font-bold text-black truncate">
+                {user.email}
+              </p>
+            </div>
+          )}
           <div className="space-y-3">
             <button onClick={() => setActiveTab('list')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-black transition-all border-3 border-black ${activeTab === 'list' ? 'bg-yellow-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-yellow-100'}`}>
               <ListIcon className="w-5 h-5" />
@@ -513,6 +520,10 @@ export function Admin() {
             <button onClick={() => setActiveTab('add')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-black transition-all border-3 border-black ${activeTab === 'add' ? 'bg-yellow-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-yellow-100'}`}>
               <PlusIcon className="w-5 h-5" />
               Add New University
+            </button>
+            <button onClick={handleLogout} className="w-full flex items-center gap-3 px-4 py-3 rounded-xl font-black transition-all border-3 border-black bg-red-100 hover:bg-red-200">
+              <LogOutIcon className="w-5 h-5" />
+              Logout
             </button>
           </div>
           <div className="mt-6 p-4 bg-blue-100 rounded-xl border-3 border-black">
