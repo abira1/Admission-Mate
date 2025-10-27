@@ -276,17 +276,17 @@ export function Results() {
         opacity: 1
       }} transition={{
         delay: 0.2
-      }} className="mb-6">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-black mb-2">
+      }} className="mb-8">
+          <h1 className="text-3xl sm:text-4xl font-black text-black mb-3 leading-tight">
             Your Eligible Universities
           </h1>
-          <p className="text-black font-bold text-sm sm:text-base">
+          <p className="text-gray-700 font-bold text-base sm:text-lg">
             {totalUniversities === 0 ? <span className="text-red-600">
                 No universities in database. Please add universities in the
                 Admin panel first.
               </span> : <>
-                Found {filteredResults.length} eligible universities out of{' '}
-                {totalUniversities} total with {totalEligibleUnits} eligible
+                Found <span className="text-indigo-600 font-black">{filteredResults.length}</span> eligible universities out of{' '}
+                {totalUniversities} total with <span className="text-green-600 font-black">{totalEligibleUnits}</span> eligible
                 programs
               </>}
           </p>
