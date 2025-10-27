@@ -11,10 +11,13 @@
     -webkit-touch-callout: none;
   }
   
-  body {
+  html, body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overscroll-behavior-y: none;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
   }
   
   /* Improve text readability on mobile */
@@ -23,10 +26,11 @@
     text-size-adjust: 100%;
   }
   
-  /* Better scrolling on iOS */
+  /* No scrolling for root */
   #root {
-    -webkit-overflow-scrolling: touch;
-    overflow-x: hidden;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
   }
   
   /* Prevent zoom on focus for iOS */
