@@ -400,37 +400,67 @@ export function Admin() {
   const [universities, setUniversities] = useState<University[]>([]);
   const [editingUniversity, setEditingUniversity] = useState<University | null>(null);
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    const stored = localStorage.getItem('universities');
-    if (stored) {
-      setUniversities(JSON.parse(stored));
-    } else {
-      setUniversities(INITIAL_UNIVERSITIES);
-      localStorage.setItem('universities', JSON.stringify(INITIAL_UNIVERSITIES));
-    }
-  }, []);
-  const handleAddUniversity = (university: Omit<University, 'id' | 'createdAt'>) => {
-    const newUniversity: University = {
-      ...university,
-      id: Date.now().toString(),
-      createdAt: new Date()
+    const loadUniversities = async () => {
+      try {
+        setLoading(true);
+        // Initialize with default data if database is empty
+        await initializeUniversities(INITIAL_UNIVERSITIES);
+        
+        // Fetch universities from Firebase
+        const unis = await getUniversities();
+        setUniversities(unis);
+      } catch (error) {
+        console.error('Error loading universities:', error);
+      } finally {
+        setLoading(false);
+      }
     };
-    const updated = [...universities, newUniversity];
-    setUniversities(updated);
-    localStorage.setItem('universities', JSON.stringify(updated));
-    setActiveTab('list');
+
+    loadUniversities();
+  }, []);
+
+  const handleAddUniversity = async (university: Omit<University, 'id' | 'createdAt'>) => {
+    try {
+      const newUniversity: University = {
+        ...university,
+        id: Date.now().toString(),
+        createdAt: new Date()
+      };
+      await addUniversity(newUniversity);
+      const updated = await getUniversities();
+      setUniversities(updated);
+      setActiveTab('list');
+    } catch (error) {
+      console.error('Error adding university:', error);
+      alert('Failed to add university. Please try again.');
+    }
   };
-  const handleUpdateUniversity = (university: University) => {
-    const updated = universities.map(u => u.id === university.id ? university : u);
-    setUniversities(updated);
-    localStorage.setItem('universities', JSON.stringify(updated));
-    setEditingUniversity(null);
+
+  const handleUpdateUniversity = async (university: University) => {
+    try {
+      await updateUniversity(university);
+      const updated = await getUniversities();
+      setUniversities(updated);
+      setEditingUniversity(null);
+    } catch (error) {
+      console.error('Error updating university:', error);
+      alert('Failed to update university. Please try again.');
+    }
   };
-  const handleDeleteUniversity = (id: string) => {
-    const updated = universities.filter(u => u.id !== id);
-    setUniversities(updated);
-    localStorage.setItem('universities', JSON.stringify(updated));
-    setDeleteConfirm(null);
+
+  const handleDeleteUniversity = async (id: string) => {
+    try {
+      await deleteUniversity(id);
+      const updated = await getUniversities();
+      setUniversities(updated);
+      setDeleteConfirm(null);
+    } catch (error) {
+      console.error('Error deleting university:', error);
+      alert('Failed to delete university. Please try again.');
+    }
   };
   return <div className="min-h-screen w-full bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50">
       <Navbar />
