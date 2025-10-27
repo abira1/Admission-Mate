@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PlusIcon, ListIcon, EditIcon, TrashIcon, XIcon, SaveIcon, InfoIcon } from 'lucide-react';
+import { PlusIcon, ListIcon, EditIcon, TrashIcon, XIcon, SaveIcon, InfoIcon, LogOutIcon } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { University, UniversityUnit } from '../types/University';
 import { getUniversities, addUniversity, updateUniversity, deleteUniversity, initializeUniversities, subscribeToUniversities } from '../utils/database';
+import { useAuth } from '../contexts/AuthContext';
 const INITIAL_UNIVERSITIES: University[] = [{
   id: 'du',
   name: 'University of Dhaka',
