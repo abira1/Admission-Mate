@@ -171,24 +171,24 @@ export function Results() {
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex flex-col">
       {loading ? (
-        <div className="flex-1 flex items-center justify-center">
+        <div className="flex-1 flex items-center justify-center p-4">
           <div className="text-center">
             <div className="inline-block animate-spin rounded-full h-16 w-16 border-4 border-black border-t-indigo-400 mb-4"></div>
             <p className="text-black font-bold text-lg">Loading universities...</p>
           </div>
         </div>
       ) : (
-        <div className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 w-full">
+        <div className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full">
         <motion.div initial={{
         opacity: 0,
         y: -20
       }} animate={{
         opacity: 1,
         y: 0
-      }} className="flex flex-col gap-5 mb-8">
-          <button onClick={() => navigate('/')} className="flex items-center gap-2 text-black hover:text-gray-700 font-bold transition-colors bg-white px-5 py-3 rounded-xl border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all w-fit">
-            <ArrowLeftIcon className="w-5 h-5" />
-            <span className="text-base">Back to Home</span>
+      }} className="flex flex-col gap-4 sm:gap-5 mb-6 sm:mb-8">
+          <button onClick={() => navigate('/')} className="flex items-center gap-3 text-black active:text-gray-700 font-bold transition-colors bg-white px-5 py-4 sm:py-3 rounded-xl border-3 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[3px] active:translate-y-[3px] transition-all w-fit text-lg sm:text-base\">
+            <ArrowLeftIcon className=\"w-6 h-6 sm:w-5 sm:h-5\" />
+            <span>Back to Home</span>
           </button>
           {/* Student Info Summary */}
           {studentData && <motion.div initial={{
