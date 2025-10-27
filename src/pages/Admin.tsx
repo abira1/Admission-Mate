@@ -4,7 +4,7 @@ import { PlusIcon, ListIcon, EditIcon, TrashIcon, XIcon, SaveIcon, InfoIcon } fr
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { University, UniversityUnit } from '../types/University';
-import { getUniversities, addUniversity, updateUniversity, deleteUniversity, initializeUniversities } from '../utils/database';
+import { getUniversities, addUniversity, updateUniversity, deleteUniversity, initializeUniversities, subscribeToUniversities } from '../utils/database';
 const INITIAL_UNIVERSITIES: University[] = [{
   id: 'du',
   name: 'University of Dhaka',
