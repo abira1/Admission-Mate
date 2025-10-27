@@ -305,18 +305,17 @@ export function Results() {
         opacity: 1
       }} transition={{
         delay: 0.2
-      }} className="mb-8">
-          <h1 className="text-3xl sm:text-4xl font-black text-black mb-3 leading-tight">
+      }} className="mb-6 sm:mb-8">
+          <h1 className="text-3xl sm:text-4xl font-black text-black mb-3 sm:mb-4 leading-tight">
             Your Eligible Universities
           </h1>
-          <p className="text-gray-700 font-bold text-base sm:text-lg">
+          <p className="text-gray-700 font-bold text-base sm:text-lg leading-relaxed\">
             {totalUniversities === 0 ? <span className="text-red-600">
                 No universities in database. Please add universities in the
                 Admin panel first.
               </span> : <>
-                Found <span className="text-indigo-600 font-black">{filteredResults.length}</span> eligible universities out of{' '}
-                {totalUniversities} total with <span className="text-green-600 font-black">{totalEligibleUnits}</span> eligible
-                programs
+                Found <span className="text-indigo-600 font-black">{filteredResults.length}</span> eligible out of{' '}
+                {totalUniversities} total with <span className="text-green-600 font-black">{totalEligibleUnits}</span> programs
               </>}
           </p>
         </motion.div>
