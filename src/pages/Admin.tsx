@@ -462,7 +462,8 @@ export function Admin() {
       alert('Failed to delete university. Please try again.');
     }
   };
-  return <div className="min-h-screen w-full bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50">
+  return (
+    <div className="min-h-screen w-full bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50">
       <Navbar />
       {loading ? (
         <div className="flex items-center justify-center min-h-screen">
