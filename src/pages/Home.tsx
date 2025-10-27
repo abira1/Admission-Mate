@@ -69,18 +69,18 @@ export function Home() {
             initial={{ opacity: 0, scale: 0.95 }} 
             animate={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 0.6, delay: 0.2 }} 
-            className="bg-white rounded-3xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] border-4 border-black p-5 sm:p-8"
+            className="bg-white rounded-2xl sm:rounded-3xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-3 border-black p-3 sm:p-5"
           >
-            <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
-              <div className="space-y-5 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-5">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+              <div className="space-y-3 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-3">
                 <div>
-                  <label className="block text-black font-bold mb-3 text-base sm:text-sm">
+                  <label className="block text-black font-bold mb-1.5 text-sm">
                     SSC Year *
                   </label>
                   <select 
                     value={formData.sscYear} 
                     onChange={e => setFormData({ ...formData, sscYear: e.target.value })} 
-                    className="w-full px-5 py-4 sm:py-3 rounded-xl border-3 border-black focus:outline-none focus:ring-4 focus:ring-indigo-300 bg-white text-black text-lg sm:text-base font-bold transition-all shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] focus:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" 
+                    className="w-full px-3 py-2.5 sm:py-2 rounded-lg border-3 border-black focus:outline-none focus:ring-3 focus:ring-indigo-300 bg-white text-black text-base sm:text-sm font-bold transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" 
                     required
                   >
                     <option value="">Select Year</option>
@@ -90,13 +90,13 @@ export function Home() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-black font-bold mb-3 text-base sm:text-sm">
+                  <label className="block text-black font-bold mb-1.5 text-sm">
                     HSC Year *
                   </label>
                   <select 
                     value={formData.hscYear} 
                     onChange={e => setFormData({ ...formData, hscYear: e.target.value })} 
-                    className="w-full px-5 py-4 sm:py-3 rounded-xl border-3 border-black focus:outline-none focus:ring-4 focus:ring-indigo-300 bg-white text-black text-lg sm:text-base font-bold transition-all shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] focus:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" 
+                    className="w-full px-3 py-2.5 sm:py-2 rounded-lg border-3 border-black focus:outline-none focus:ring-3 focus:ring-indigo-300 bg-white text-black text-base sm:text-sm font-bold transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" 
                     required
                   >
                     <option value="">Select Year</option>
@@ -106,7 +106,7 @@ export function Home() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-black font-bold mb-3 text-base sm:text-sm">
+                  <label className="block text-black font-bold mb-1.5 text-sm">
                     SSC GPA (Max 5.00) *
                   </label>
                   <input 
@@ -118,12 +118,12 @@ export function Home() {
                     value={formData.sscGPA || ''} 
                     onChange={e => handleGPAChange('sscGPA', e.target.value)} 
                     placeholder="Enter GPA" 
-                    className="w-full px-5 py-4 sm:py-3 rounded-xl border-3 border-black focus:outline-none focus:ring-4 focus:ring-indigo-300 bg-white text-black text-lg sm:text-base font-bold transition-all shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] focus:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" 
+                    className="w-full px-3 py-2.5 sm:py-2 rounded-lg border-3 border-black focus:outline-none focus:ring-3 focus:ring-indigo-300 bg-white text-black text-base sm:text-sm font-bold transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" 
                     required 
                   />
                 </div>
                 <div>
-                  <label className="block text-black font-bold mb-3 text-base sm:text-sm">
+                  <label className="block text-black font-bold mb-1.5 text-sm">
                     HSC GPA (Max 5.00) *
                   </label>
                   <input 
@@ -135,19 +135,19 @@ export function Home() {
                     value={formData.hscGPA || ''} 
                     onChange={e => handleGPAChange('hscGPA', e.target.value)} 
                     placeholder="Enter GPA" 
-                    className="w-full px-5 py-4 sm:py-3 rounded-xl border-3 border-black focus:outline-none focus:ring-4 focus:ring-indigo-300 bg-white text-black text-lg sm:text-base font-bold transition-all shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] focus:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" 
+                    className="w-full px-3 py-2.5 sm:py-2 rounded-lg border-3 border-black focus:outline-none focus:ring-3 focus:ring-indigo-300 bg-white text-black text-base sm:text-sm font-bold transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" 
                     required 
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-black font-bold mb-3 text-base sm:text-sm">
+                <label className="block text-black font-bold mb-1.5 text-sm">
                   Group *
                 </label>
                 <select 
                   value={formData.group} 
                   onChange={e => setFormData({ ...formData, group: e.target.value })} 
-                  className="w-full px-5 py-4 sm:py-3 rounded-xl border-3 border-black focus:outline-none focus:ring-4 focus:ring-indigo-300 bg-white text-black text-lg sm:text-base font-bold transition-all shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] focus:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" 
+                  className="w-full px-3 py-2.5 sm:py-2 rounded-lg border-3 border-black focus:outline-none focus:ring-3 focus:ring-indigo-300 bg-white text-black text-base sm:text-sm font-bold transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]" 
                   required
                 >
                   <option value="">Select Group</option>
@@ -160,9 +160,9 @@ export function Home() {
               <motion.button 
                 whileTap={{ scale: 0.97 }} 
                 type="submit" 
-                className="w-full bg-indigo-400 active:bg-indigo-500 text-black py-5 sm:py-4 px-6 rounded-xl font-black text-xl sm:text-lg flex items-center justify-center gap-3 border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-[3px] active:translate-y-[3px] transition-all"
+                className="w-full bg-indigo-400 active:bg-indigo-500 text-black py-3 sm:py-2.5 px-4 rounded-lg sm:rounded-xl font-black text-base sm:text-lg flex items-center justify-center gap-2 border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] transition-all"
               >
-                <SearchIcon className="w-6 h-6 sm:w-5 sm:h-5" />
+                <SearchIcon className="w-5 h-5 sm:w-5 sm:h-5" />
                 Find My Universities
               </motion.button>
             </form>
