@@ -86,19 +86,19 @@ export function Results() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadData = async () => {
-      const data = localStorage.getItem('studentData');
-      if (!data) {
-        navigate('/');
-        return;
-      }
+    const data = localStorage.getItem('studentData');
+    if (!data) {
+      navigate('/');
+      return;
+    }
 
-      const student: StudentData = JSON.parse(data);
-      setStudentData(student);
+    const student: StudentData = JSON.parse(data);
+    setStudentData(student);
 
+    const loadInitialData = async () => {
       try {
         setLoading(true);
-        // Load universities from Firebase
+        // Load universities from Firebase initially
         const allUniversities = await getUniversities();
         setTotalUniversities(allUniversities.length);
         console.log('Total universities in database:', allUniversities.length);
@@ -111,17 +111,35 @@ export function Results() {
 
         setEligibilityResults(results);
         setFilteredResults(results);
+        setLoading(false);
       } catch (error) {
         console.error('Error loading universities:', error);
         setTotalUniversities(0);
         setEligibilityResults([]);
         setFilteredResults([]);
-      } finally {
         setLoading(false);
       }
     };
 
-    loadData();
+    loadInitialData();
+
+    // Subscribe to real-time updates
+    const unsubscribe = subscribeToUniversities((updatedUniversities) => {
+      console.log('Real-time update: Universities changed', updatedUniversities.length);
+      setTotalUniversities(updatedUniversities.length);
+      
+      // Re-run matching algorithm with updated universities
+      const results = matchEligibleUniversities(student, updatedUniversities);
+      console.log('Updated eligible universities:', results.length);
+      
+      setEligibilityResults(results);
+      setFilteredResults(results);
+    });
+
+    // Cleanup listener on unmount
+    return () => {
+      unsubscribe();
+    };
   }, [navigate]);
   useEffect(() => {
     let filtered = eligibilityResults;
