@@ -519,6 +519,7 @@ export function Admin() {
           {activeTab === 'list' ? <UniversityList universities={universities} onEdit={setEditingUniversity} onDelete={id => setDeleteConfirm(id)} /> : <AddUniversityForm onSubmit={handleAddUniversity} />}
         </motion.div>
       </div>
+      )}
       <AnimatePresence>
         {editingUniversity && <EditModal university={editingUniversity} onClose={() => setEditingUniversity(null)} onSave={handleUpdateUniversity} />}
       </AnimatePresence>
