@@ -19,15 +19,15 @@ export function Loading() {
       scale: 1
     }} transition={{
       duration: 0.5
-    }} className="text-center">
+    }} className="text-center max-w-md">
         <motion.div animate={{
         rotate: 360
       }} transition={{
         duration: 2,
         repeat: Infinity,
         ease: 'linear'
-      }} className="inline-block mb-6 sm:mb-8 bg-indigo-300 rounded-full p-5 sm:p-6 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-          <LoaderIcon className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 text-black" />
+      }} className="inline-block mb-8 bg-indigo-400 rounded-full p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+          <LoaderIcon className="w-20 h-20 text-black" />
         </motion.div>
         <motion.h2 initial={{
         opacity: 0
@@ -35,11 +35,11 @@ export function Loading() {
         opacity: 1
       }} transition={{
         delay: 0.3
-      }} className="text-xl sm:text-2xl md:text-3xl font-black text-black mb-4 px-4">
+      }} className="text-3xl font-black text-black mb-6 px-4 leading-tight">
           Analyzing your eligibility...
         </motion.h2>
-        <div className="max-w-xs mx-auto px-4">
-          <div className="h-3 sm:h-4 bg-white rounded-full border-3 border-black overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <div className="max-w-sm mx-auto px-4">
+          <div className="h-4 bg-white rounded-full border-3 border-black overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             <motion.div initial={{
             width: 0
           }} animate={{
@@ -47,7 +47,7 @@ export function Loading() {
           }} transition={{
             duration: 3,
             ease: 'easeInOut'
-          }} className="h-full bg-indigo-300" />
+          }} className="h-full bg-indigo-400" />
           </div>
         </div>
         <motion.p initial={{
@@ -56,7 +56,7 @@ export function Loading() {
         opacity: 1
       }} transition={{
         delay: 0.6
-      }} className="text-black mt-4 sm:mt-6 font-bold text-sm sm:text-base px-4">
+      }} className="text-gray-700 mt-6 font-bold text-base px-4">
           Please wait while we find the best matches...
         </motion.p>
       </motion.div>
