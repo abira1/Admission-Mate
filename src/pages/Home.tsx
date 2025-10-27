@@ -172,16 +172,16 @@ export function Home() {
             initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.6, delay: 0.4 }} 
-            className="mt-6 sm:mt-8 text-center"
+            className="mt-3 sm:mt-4 text-center"
           >
-            <div className="flex items-center justify-center gap-2 flex-wrap">
-              <CodeIcon className="w-4 h-4 text-gray-700" />
-              <span className="text-gray-700 font-bold text-sm">Developed by</span>
+            <div className="flex items-center justify-center gap-1.5 flex-wrap">
+              <CodeIcon className="w-3.5 h-3.5 text-gray-700" />
+              <span className="text-gray-700 font-bold text-xs">Developed by</span>
               <a 
                 href="https://toiral-development.web.app/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-indigo-600 font-bold text-sm hover:text-indigo-700 underline transition-colors"
+                className="text-indigo-600 font-bold text-xs hover:text-indigo-700 underline transition-colors"
               >
                 Toiral Web Development
               </a>
