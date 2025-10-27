@@ -5,15 +5,21 @@ import { University } from '../types/University';
 // Get all universities
 export const getUniversities = async (): Promise<University[]> => {
   try {
+    console.log('📡 Fetching universities from Firebase...');
     const universitiesRef = ref(db, 'universities');
     const snapshot = await get(universitiesRef);
+    
     if (snapshot.exists()) {
       const data = snapshot.val();
-      return Object.values(data);
+      const universities: University[] = Object.values(data);
+      console.log('✅ Successfully fetched universities:', universities.length);
+      return universities;
     }
+    
+    console.warn('⚠️ No universities found in Firebase database');
     return [];
   } catch (error) {
-    console.error('Error fetching universities:', error);
+    console.error('❌ Error fetching universities from Firebase:', error);
     return [];
   }
 };
