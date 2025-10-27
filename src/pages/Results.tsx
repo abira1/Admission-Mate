@@ -190,7 +190,7 @@ export function Results() {
             <ArrowLeftIcon className=\"w-6 h-6 sm:w-5 sm:h-5\" />
             <span>Back to Home</span>
           </button>
-          {/* Student Info Summary */}
+          {/* Student Info Summary - Mobile Optimized */}
           {studentData && <motion.div initial={{
           opacity: 0,
           y: -10
@@ -199,51 +199,53 @@ export function Results() {
           y: 0
         }} transition={{
           delay: 0.1
-        }} className="bg-white rounded-2xl border-4 border-black p-5 sm:p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-              <div className="flex flex-wrap gap-4 items-center justify-between">
-                <div className="flex flex-wrap gap-3 sm:gap-4">
-                  <div className="bg-blue-100 px-4 py-2.5 rounded-xl border-2 border-black">
-                    <span className="text-xs font-bold text-gray-700">SSC GPA</span>
-                    <p className="text-xl font-black text-black">
+        }} className="bg-white rounded-2xl border-4 border-black p-4 sm:p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+              <div className="space-y-4">
+                {/* GPA Cards - Full width on mobile, grid on desktop */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3\">
+                  <div className="bg-blue-100 px-4 py-3 rounded-xl border-3 border-black text-center">
+                    <span className="text-xs font-bold text-gray-700 block mb-1">SSC GPA</span>
+                    <p className="text-2xl sm:text-xl font-black text-black">
                       {studentData.sscGPA}
                     </p>
                   </div>
-                  <div className="bg-green-100 px-4 py-2.5 rounded-xl border-2 border-black">
-                    <span className="text-xs font-bold text-gray-700">HSC GPA</span>
-                    <p className="text-xl font-black text-black">
+                  <div className="bg-green-100 px-4 py-3 rounded-xl border-3 border-black text-center">
+                    <span className="text-xs font-bold text-gray-700 block mb-1">HSC GPA</span>
+                    <p className="text-2xl sm:text-xl font-black text-black">
                       {studentData.hscGPA}
                     </p>
                   </div>
-                  <div className="bg-yellow-100 px-4 py-2.5 rounded-xl border-2 border-black">
-                    <span className="text-xs font-bold text-gray-700">
+                  <div className="bg-yellow-100 px-4 py-3 rounded-xl border-3 border-black text-center">
+                    <span className="text-xs font-bold text-gray-700 block mb-1">
                       Total GPA
                     </span>
-                    <p className="text-xl font-black text-black">
+                    <p className="text-2xl sm:text-xl font-black text-black">
                       {(studentData.sscGPA + studentData.hscGPA).toFixed(2)}
                     </p>
                   </div>
-                  <div className="bg-purple-100 px-4 py-2.5 rounded-xl border-2 border-black">
-                    <span className="text-xs font-bold text-gray-700">
+                  <div className="bg-purple-100 px-4 py-3 rounded-xl border-3 border-black text-center col-span-2 sm:col-span-1">
+                    <span className="text-xs font-bold text-gray-700 block mb-1">
                       Group
                     </span>
-                    <p className="text-base font-black text-black">
+                    <p className="text-lg sm:text-base font-black text-black truncate\">
                       {studentData.group}
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-2 sm:gap-3">
-                  <div className="bg-green-100 px-3 py-2 rounded-xl border-2 border-black">
-                    <div className="flex items-center gap-1.5">
-                      <CheckCircleIcon className="w-4 h-4 text-green-600" />
-                      <span className="text-xs font-bold text-green-700">
+                {/* Status Badges */}
+                <div className="flex gap-3 justify-center sm:justify-start\">
+                  <div className="bg-green-100 px-4 py-2.5 rounded-xl border-3 border-black flex-1 sm:flex-none text-center\">
+                    <div className="flex items-center justify-center gap-2">
+                      <CheckCircleIcon className="w-5 h-5 text-green-600\" />
+                      <span className="text-sm font-bold text-green-700">
                         {openUnitsCount} Open
                       </span>
                     </div>
                   </div>
-                  <div className="bg-red-100 px-3 py-2 rounded-xl border-2 border-black">
-                    <div className="flex items-center gap-1.5">
-                      <AlertCircleIcon className="w-4 h-4 text-red-600" />
-                      <span className="text-xs font-bold text-red-700">
+                  <div className="bg-red-100 px-4 py-2.5 rounded-xl border-3 border-black flex-1 sm:flex-none text-center\">
+                    <div className="flex items-center justify-center gap-2">
+                      <AlertCircleIcon className="w-5 h-5 text-red-600\" />
+                      <span className="text-sm font-bold text-red-700">
                         {totalEligibleUnits - openUnitsCount} Closed
                       </span>
                     </div>
