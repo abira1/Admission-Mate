@@ -35,9 +35,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
-    } catch (error) {
+      const result = await signInWithPopup(auth, provider);
+      
+      // Check if the signed-in user's email is in the admin whitelist
+      if (!isAdminEmail(result.user.email)) {
+        // Sign out immediately if not authorized
+        await signOut(auth);
+        throw new Error('UNAUTHORIZED_EMAIL');
+      }
+    } catch (error: any) {
       console.error('Error signing in with Google:', error);
+      
+      // Sign out if there was any error to ensure clean state
+      try {
+        await signOut(auth);
+      } catch (signOutError) {
+        console.error('Error signing out:', signOutError);
+      }
+      
       throw error;
     }
   };
