@@ -309,7 +309,7 @@ export function Results() {
           <h1 className="text-3xl sm:text-4xl font-black text-black mb-3 sm:mb-4 leading-tight">
             Your Eligible Universities
           </h1>
-          <p className="text-gray-700 font-bold text-base sm:text-lg leading-relaxed\">
+          <p className="text-gray-700 font-bold text-base sm:text-lg leading-relaxed">
             {totalUniversities === 0 ? <span className="text-red-600">
                 No universities in database. Please add universities in the
                 Admin panel first.
