@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { User, signInWithPopup, signOut, onAuthStateChanged, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from '../utils/firebase';
+import { isAdminEmail } from '../utils/adminEmails';
 
 interface AuthContextType {
   user: User | null;
