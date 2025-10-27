@@ -350,7 +350,7 @@ export function Results() {
             </p>
             <button 
               onClick={() => navigate('/')} 
-              className="bg-indigo-400 text-black py-4 px-8 rounded-xl font-black text-lg border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-[3px] active:translate-y-[3px] transition-all\">
+              className="bg-indigo-400 text-black py-4 px-8 rounded-xl font-black text-lg border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-[3px] active:translate-y-[3px] transition-all">
               Try Different Criteria
             </button>
           </motion.div> : <div className="grid gap-5 sm:gap-6 pb-6 sm:pb-8">
