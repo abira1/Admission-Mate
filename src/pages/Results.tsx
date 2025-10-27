@@ -202,7 +202,7 @@ export function Results() {
         }} className="bg-white rounded-2xl border-4 border-black p-4 sm:p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
               <div className="space-y-4">
                 {/* GPA Cards - Full width on mobile, grid on desktop */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3\">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   <div className="bg-blue-100 px-4 py-3 rounded-xl border-3 border-black text-center">
                     <span className="text-xs font-bold text-gray-700 block mb-1">SSC GPA</span>
                     <p className="text-2xl sm:text-xl font-black text-black">
@@ -227,24 +227,24 @@ export function Results() {
                     <span className="text-xs font-bold text-gray-700 block mb-1">
                       Group
                     </span>
-                    <p className="text-lg sm:text-base font-black text-black truncate\">
+                    <p className="text-lg sm:text-base font-black text-black truncate">
                       {studentData.group}
                     </p>
                   </div>
                 </div>
                 {/* Status Badges */}
-                <div className="flex gap-3 justify-center sm:justify-start\">
-                  <div className="bg-green-100 px-4 py-2.5 rounded-xl border-3 border-black flex-1 sm:flex-none text-center\">
+                <div className="flex gap-3 justify-center sm:justify-start">
+                  <div className="bg-green-100 px-4 py-2.5 rounded-xl border-3 border-black flex-1 sm:flex-none text-center">
                     <div className="flex items-center justify-center gap-2">
-                      <CheckCircleIcon className="w-5 h-5 text-green-600\" />
+                      <CheckCircleIcon className="w-5 h-5 text-green-600" />
                       <span className="text-sm font-bold text-green-700">
                         {openUnitsCount} Open
                       </span>
                     </div>
                   </div>
-                  <div className="bg-red-100 px-4 py-2.5 rounded-xl border-3 border-black flex-1 sm:flex-none text-center\">
+                  <div className="bg-red-100 px-4 py-2.5 rounded-xl border-3 border-black flex-1 sm:flex-none text-center">
                     <div className="flex items-center justify-center gap-2">
-                      <AlertCircleIcon className="w-5 h-5 text-red-600\" />
+                      <AlertCircleIcon className="w-5 h-5 text-red-600" />
                       <span className="text-sm font-bold text-red-700">
                         {totalEligibleUnits - openUnitsCount} Closed
                       </span>
