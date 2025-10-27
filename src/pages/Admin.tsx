@@ -398,11 +398,22 @@ const INITIAL_UNIVERSITIES: University[] = [{
   createdAt: new Date()
 }];
 export function Admin() {
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
   const [activeTab, setActiveTab] = useState<'list' | 'add'>('list');
   const [universities, setUniversities] = useState<University[]>([]);
   const [editingUniversity, setEditingUniversity] = useState<University | null>(null);
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/admin/login');
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
 
   useEffect(() => {
     const loadUniversities = async () => {
