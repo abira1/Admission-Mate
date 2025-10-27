@@ -140,7 +140,15 @@ export function Results() {
   const totalEligibleUnits = eligibilityResults.reduce((sum, result) => sum + result.totalEligibleUnits, 0);
   const openUnitsCount = eligibilityResults.reduce((sum, result) => sum + result.eligibleUnits.filter(u => u.status === 'Open').length, 0);
   return <div className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex flex-col">
-      <div className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 w-full">
+      {loading ? (
+        <div className="flex-1 flex items-center justify-center">
+          <div className="text-center">
+            <div className="inline-block animate-spin rounded-full h-16 w-16 border-4 border-black border-t-indigo-400 mb-4"></div>
+            <p className="text-black font-bold">Loading universities...</p>
+          </div>
+        </div>
+      ) : (
+        <div className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 w-full">
         <motion.div initial={{
         opacity: 0,
         y: -20
