@@ -13,9 +13,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
-    "firebase/app": "latest",
-    "firebase/firestore": "latest",
-    "firebase/auth": "latest",
+    "firebase": "^10.7.1",
     "lucide-react": "0.522.0",
     "framer-motion": "^11.5.4"
   },
