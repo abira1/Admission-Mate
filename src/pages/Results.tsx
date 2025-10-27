@@ -83,33 +83,45 @@ export function Results() {
   const [studentData, setStudentData] = useState<StudentData | null>(null);
   const [filterStatus, setFilterStatus] = useState<'all' | 'open' | 'closed'>('all');
   const [totalUniversities, setTotalUniversities] = useState(0);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    const data = localStorage.getItem('studentData');
-    if (!data) {
-      navigate('/');
-      return;
-    }
-    const student: StudentData = JSON.parse(data);
-    setStudentData(student);
-    // Load universities from localStorage
-    const storedUniversities = localStorage.getItem('universities');
-    if (!storedUniversities) {
-      console.warn('No universities found in localStorage');
-      setTotalUniversities(0);
-      setEligibilityResults([]);
-      setFilteredResults([]);
-      return;
-    }
-    const allUniversities: University[] = JSON.parse(storedUniversities);
-    setTotalUniversities(allUniversities.length);
-    console.log('Total universities in database:', allUniversities.length);
-    console.log('Student data:', student);
-    // Run matching algorithm
-    const results = matchEligibleUniversities(student, allUniversities);
-    console.log('Eligible universities found:', results.length);
-    console.log('Results:', results);
-    setEligibilityResults(results);
-    setFilteredResults(results);
+    const loadData = async () => {
+      const data = localStorage.getItem('studentData');
+      if (!data) {
+        navigate('/');
+        return;
+      }
+
+      const student: StudentData = JSON.parse(data);
+      setStudentData(student);
+
+      try {
+        setLoading(true);
+        // Load universities from Firebase
+        const allUniversities = await getUniversities();
+        setTotalUniversities(allUniversities.length);
+        console.log('Total universities in database:', allUniversities.length);
+        console.log('Student data:', student);
+
+        // Run matching algorithm
+        const results = matchEligibleUniversities(student, allUniversities);
+        console.log('Eligible universities found:', results.length);
+        console.log('Results:', results);
+
+        setEligibilityResults(results);
+        setFilteredResults(results);
+      } catch (error) {
+        console.error('Error loading universities:', error);
+        setTotalUniversities(0);
+        setEligibilityResults([]);
+        setFilteredResults([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadData();
   }, [navigate]);
   useEffect(() => {
     let filtered = eligibilityResults;
